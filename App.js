@@ -5,9 +5,10 @@ import Colors from './constants/Colors';
 import DATA from './models/courseData';
 
 // Flatslist item component
-const Item = ({ title }) => (
+const Item = ({ title, info }) => (
    <View style={styles.textContainer}>
       <Text style={styles.title}>{title}</Text>
+      <Text style={styles.info}>{info}</Text>
    </View>
 );
 
@@ -23,7 +24,8 @@ export default function App() {
             </View>
             <FlatList
                data={DATA}
-               renderItem={({ item }) => <Item title={item.title} />}
+               renderItem={({ item }) => <Item title={item.title}
+                  info={item.info} />}
                keyExtractor={item => item.id}
             />
          </SafeAreaView>
@@ -57,6 +59,9 @@ const styles = StyleSheet.create({
    },
    title: {
       fontSize: 32,
+      color: 'white'
+   },
+   info: {
       color: 'white'
    }
 });
