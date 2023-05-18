@@ -3,14 +3,8 @@ import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
 
 import Colors from './constants/Colors';
 import DATA from './models/courseData';
+import CourseCard from './components/CourseCard';
 
-// Flatslist item component
-const Item = ({ title, info }) => (
-   <View style={styles.textContainer}>
-      <Text style={styles.title}>{title}</Text>
-      <Text style={styles.info}>{info}</Text>
-   </View>
-);
 
 export default function App() {
 
@@ -24,8 +18,10 @@ export default function App() {
             </View>
             <FlatList
                data={DATA}
-               renderItem={({ item }) => <Item title={item.title}
-                  info={item.info} />}
+               renderItem={({ item }) =>
+                  <CourseCard
+                     title={item.title}
+                     info={item.info} />}
                keyExtractor={item => item.id}
             />
          </SafeAreaView>
@@ -41,27 +37,4 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       marginTop: StatusBar.currentHeight || 0
    },
-   textContainer: {
-      alignItems: 'center',
-      color: 'white',
-      backgroundColor: Colors.primary500,
-      padding: 15,
-      borderRadius: 8,
-      elevation: 30,
-      shadowOffset: { width: 0, height: 2 },
-      shadowColor: 'black',
-      shadowOpacity: 0.3,
-      marginVertical: 8,
-      marginHorizontal: 16,
-   },
-   hello: {
-      color: 'white'
-   },
-   title: {
-      fontSize: 32,
-      color: 'white'
-   },
-   info: {
-      color: 'white'
-   }
 });
