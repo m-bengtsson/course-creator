@@ -1,31 +1,33 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
+import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import Colors from './constants/Colors';
-import DATA from './models/courseData';
-import CourseCard from './components/CourseCard';
+import HomeScreen from './screens/HomeScreen';
+import CourseDetailsScreen from './screens/CourseDetailsScreen';
+
+const Stack = createNativeStackNavigator()
 
 
 export default function App() {
 
-
    return (
-      <View style={styles.container}>
+      <>
          <StatusBar style="dark" />
-         <SafeAreaView style={styles.safeArea}>
-            <View style={styles.textContainer}>
-               <Text style={styles.hello}>Hello world!</Text>
-            </View>
-            <FlatList
-               data={DATA}
-               renderItem={({ item }) =>
-                  <CourseCard
-                     title={item.title}
-                     info={item.info} />}
-               keyExtractor={item => item.id}
-            />
-         </SafeAreaView>
-      </View>
+         <NavigationContainer>
+            <Stack.Navigator screenOptions={{
+               title: 'All courses',
+               headerStyle: { backgroundColor: 'pink' },
+               headerTintColor: 'green'
+            }}>
+               <Stack.Screen name='AllCourses' component={HomeScreen} />
+               <Stack.Screen name='CourseDetails' component={CourseDetailsScreen} />
+
+            </Stack.Navigator>
+         </NavigationContainer>
+      </>
+
+
    );
 }
 
