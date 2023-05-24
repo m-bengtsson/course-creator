@@ -1,7 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
-import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import { StyleSheet, View, FlatList, SafeAreaView, Button } from 'react-native';
 
 import Colors from '../constants/Colors'
 import DATA from '../data/courseData';
@@ -18,9 +16,8 @@ export default function HomeScreen() {
    return (
       <View style={styles.container}>
          <StatusBar style="dark" />
+
          <SafeAreaView style={styles.safeArea}>
-            <View style={styles.textContainer}>
-            </View>
             <FlatList
                data={DATA}
                renderItem={renderCourse}
@@ -39,4 +36,7 @@ const styles = StyleSheet.create({
       justifyContent: 'center',
       marginTop: StatusBar.currentHeight || 0
    },
+   safeArea: {
+      marginTop: 14
+   }
 });

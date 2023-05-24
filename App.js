@@ -5,6 +5,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 import HomeScreen from './screens/HomeScreen';
 import CourseDetailsScreen from './screens/CourseDetailsScreen';
+import Colors from './constants/Colors';
 
 const Stack = createNativeStackNavigator()
 
@@ -17,12 +18,11 @@ export default function App() {
          <NavigationContainer>
             <Stack.Navigator screenOptions={{
                title: 'All courses',
-               headerStyle: { backgroundColor: 'pink' },
-               headerTintColor: 'green'
+               headerStyle: { backgroundColor: Colors.secondary500 },
+               headerTintColor: Colors.primary500
             }}>
-               <Stack.Screen name='AllCourses' component={HomeScreen} />
+               <Stack.Screen name='All Courses' component={HomeScreen} />
                <Stack.Screen name='CourseDetails' component={CourseDetailsScreen} />
-
             </Stack.Navigator>
          </NavigationContainer>
       </>
