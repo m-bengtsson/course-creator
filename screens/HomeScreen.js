@@ -21,9 +21,7 @@ export default function HomeScreen() {
             <FlatList
                data={DATA}
                renderItem={({ item }) =>
-                  <CourseCard
-                     title={item.title}
-                     info={item.info} />}
+                  <CourseCard {...item} />}
                keyExtractor={item => item.id}
             />
          </SafeAreaView>

@@ -2,11 +2,11 @@ import { StyleSheet, View, Text, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-export default Item = ({ title, info }) => {
+export default Item = ({ title, info, id }) => {
 
    const navigation = useNavigation()
    const pressCourseHandler = () => {
-      navigation.navigate('CourseDetails')
+      navigation.navigate('CourseDetails', { id: id })
 
    }
    return (
