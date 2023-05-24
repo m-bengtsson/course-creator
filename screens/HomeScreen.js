@@ -3,7 +3,6 @@ import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-
 import Colors from '../constants/Colors'
 import DATA from '../data/courseData';
 import CourseCard from '../components/CourseCard';
@@ -11,6 +10,10 @@ import CourseCard from '../components/CourseCard';
 
 export default function HomeScreen() {
 
+   const renderCourse = (itemData) => {
+      const course = itemData.item;
+      return <CourseCard {...course} />
+   };
 
    return (
       <View style={styles.container}>
@@ -20,8 +23,7 @@ export default function HomeScreen() {
             </View>
             <FlatList
                data={DATA}
-               renderItem={({ item }) =>
-                  <CourseCard {...item} />}
+               renderItem={renderCourse}
                keyExtractor={item => item.id}
             />
          </SafeAreaView>
