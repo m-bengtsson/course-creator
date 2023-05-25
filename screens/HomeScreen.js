@@ -1,32 +1,45 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, View, FlatList, SafeAreaView, Button } from 'react-native';
+import { useState } from 'react';
 
 import Colors from '../constants/Colors'
 import DATA from '../data/courseData';
 import CourseCard from '../components/CourseCard';
+import FilterButtons from '../components/FilterButtons';
 
+const HomeScreen = () => {
+   const [selectedCategory, setSelectedCategory] = useState(null);
 
-export default function HomeScreen() {
+   const filterCourses = () => {
+      if (!selectedCategory) {
+         return DATA; // no category selected, return all courses
+      }
+
+      return DATA.filter(course => course.category === selectedCategory);
+   };
 
    const renderCourse = (itemData) => {
       const course = itemData.item;
-      return <CourseCard {...course} />
+      return <CourseCard {...course} />;
    };
 
    return (
       <View style={styles.container}>
          <StatusBar style="dark" />
-
          <SafeAreaView style={styles.safeArea}>
+            <FilterButtons
+               selectedCategory={selectedCategory}
+               onSelectCategory={setSelectedCategory}
+            />
             <FlatList
-               data={DATA}
+               data={filterCourses()}
                renderItem={renderCourse}
                keyExtractor={item => item.id}
             />
          </SafeAreaView>
       </View>
    );
-}
+};
 
 const styles = StyleSheet.create({
    container: {
@@ -40,3 +53,5 @@ const styles = StyleSheet.create({
       marginTop: 14
    }
 });
+
+export default HomeScreen;
