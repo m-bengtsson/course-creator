@@ -7,6 +7,7 @@ export default Item = ({ title, info, id }) => {
    const navigation = useNavigation()
    const pressCourseHandler = () => {
       navigation.navigate('CourseDetails', { id: id })
+      console.log('from coursecard', id)
    }
    return (
       <View style={styles.textContainer}>

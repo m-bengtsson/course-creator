@@ -1,6 +1,6 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Button, StyleSheet } from 'react-native';
+import { View, Button, StyleSheet, Text } from 'react-native';
 import Colors from '../constants/Colors';
 
 
@@ -18,7 +18,10 @@ const FilterButtons = ({ selectedCategory, onSelectCategory }) => {
 
    return (
       <View style={styles.container}>
-         <Button style={styles.filterButton} title="Filter" onPress={toggleCategories} />
+         <View style={styles.titleFilter}>
+            <Text style={styles.categoryTitle}>{selectedCategory}</Text>
+            <Button style={styles.filterButton} title="Filter" onPress={toggleCategories} />
+         </View>
          {showCategories && (
             <View style={styles.categoryContainer}>
                <Button style={styles.button} title="All" onPress={() => handleCategorySelection(null)} />
@@ -39,18 +42,21 @@ const styles = StyleSheet.create({
    },
    categoryContainer: {
       marginTop: 10,
-
+   },
+   categoryTitle: {
+      fontSize: 24,
+      fontWeight: 'bold',
+      color: Colors.primary500
    },
    filterButton: {
-      flex: 1,
       alignItems: 'flex-end'
 
    },
-   button: {
-      color: Colors.primary500,
-   },
-   buttonTitle: {
-      color: 'red'
+   titleFilter: {
+      flexDirection: 'row',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+      marginHorizontal: 20
    }
 
 });

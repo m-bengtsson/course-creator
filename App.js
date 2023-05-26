@@ -17,7 +17,7 @@ export default function App() {
          <StatusBar style="dark" />
          <NavigationContainer>
             <Stack.Navigator screenOptions={{
-               title: 'All courses',
+               title: 'Home',
                headerStyle: { backgroundColor: Colors.secondary500 },
                headerTintColor: Colors.primary500
             }}>
