@@ -1,7 +1,8 @@
 import React from 'react';
 import { useState } from 'react';
-import { View, Button, StyleSheet, Text } from 'react-native';
+import { View, StyleSheet, Text } from 'react-native';
 import Colors from '../constants/Colors';
+import Button from './Button'
 
 
 const FilterButtons = ({ selectedCategory, onSelectCategory }) => {
@@ -24,9 +25,9 @@ const FilterButtons = ({ selectedCategory, onSelectCategory }) => {
          </View>
          {showCategories && (
             <View style={styles.categoryContainer}>
-               <Button style={styles.button} title="All" onPress={() => handleCategorySelection(null)} />
-               <Button style={styles.button} title="Plantcare" onPress={() => handleCategorySelection('Plantcare')} />
-               <Button style={styles.button} title="Plant design" onPress={() => handleCategorySelection('Plant Design')} titleStyle={styles.buttonTitle} />
+               <Button title="All" onPress={() => handleCategorySelection(null)} />
+               <Button title="Plantcare" onPress={() => handleCategorySelection('Plantcare')} />
+               <Button title="Plant design" onPress={() => handleCategorySelection('Plant Design')} titleStyle={styles.buttonTitle} />
                {/* Add more buttons for other categories */}
             </View>
          )}
@@ -42,11 +43,13 @@ const styles = StyleSheet.create({
    },
    categoryContainer: {
       marginTop: 10,
+      alignItems: 'center'
    },
    categoryTitle: {
       fontSize: 24,
       fontWeight: 'bold',
-      color: Colors.primary500
+      color: Colors.primary500,
+      textTransform: "uppercase",
    },
    filterButton: {
       alignItems: 'flex-end'
@@ -57,8 +60,7 @@ const styles = StyleSheet.create({
       justifyContent: 'space-between',
       alignItems: 'center',
       marginHorizontal: 20
-   }
-
+   },
 });
 
 export default FilterButtons;

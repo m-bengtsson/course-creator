@@ -35,9 +35,7 @@ const HomeScreen = () => {
                data={filterCourses()}
                renderItem={renderCourse}
                keyExtractor={item => item.id}
-
             />
-
          </SafeAreaView>
       </View>
    );
