@@ -25,8 +25,8 @@ const FilterButtons = ({ selectedCategory, onSelectCategory }) => {
          {showCategories && (
             <View style={styles.categoryContainer}>
                <Button style={styles.button} title="All" onPress={() => handleCategorySelection(null)} />
-               <Button style={styles.button} title="Frontend" onPress={() => handleCategorySelection('frontend')} />
-               <Button style={styles.button} title="Backend" onPress={() => handleCategorySelection('backend')} titleStyle={styles.buttonTitle} />
+               <Button style={styles.button} title="Plantcare" onPress={() => handleCategorySelection('Plantcare')} />
+               <Button style={styles.button} title="Plant design" onPress={() => handleCategorySelection('Plant Design')} titleStyle={styles.buttonTitle} />
                {/* Add more buttons for other categories */}
             </View>
          )}

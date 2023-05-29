@@ -7,11 +7,9 @@ const CardItem = ({ title, description, id, contents, image }) => {
    const navigation = useNavigation()
    const pressCourseHandler = () => {
       navigation.navigate('CourseDetails', { id: id })
-      console.log('from coursecard', id)
    }
-   console.log(image)
    return (
-      <View style={styles.container}>
+      <View style={styles.container} >
          <Pressable onPress={pressCourseHandler}>
             <View style={styles.innerContainer}>
                <Image style={styles.image} source={image} />
@@ -35,22 +33,24 @@ const styles = StyleSheet.create({
       marginVertical: 10,
       marginHorizontal: 10,
       shadowRadius: 7,
+
    },
    innerContainer: {
       borderRadius: 8,
       overflow: 'hidden'
    },
    title: {
-      fontSize: 22,
+      fontSize: 20,
       color: Colors.primary500,
-      margin: 15
+      margin: 20
    },
    info: {
       color: Colors.primary500
    },
    image: {
-      width: 350,
+      width: 394,
       height: 200,
+      overflow: 'hidden'
    }
 });
 

@@ -14,7 +14,7 @@ const HomeScreen = () => {
       if (!selectedCategory) {
          return DATA; // no category selected, return all courses
       }
-
+      // filter and return courses by selected category
       return DATA.filter(course => course.category === selectedCategory);
    };
 
@@ -35,6 +35,7 @@ const HomeScreen = () => {
                data={filterCourses()}
                renderItem={renderCourse}
                keyExtractor={item => item.id}
+
             />
 
          </SafeAreaView>
