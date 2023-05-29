@@ -13,11 +13,10 @@ const CardItem = ({ title, description, id, contents, image }) => {
    return (
       <View style={styles.container}>
          <Pressable onPress={pressCourseHandler}>
-            <View >
+            <View style={styles.innerContainer}>
                <Image style={styles.image} source={image} />
                <Text style={styles.title}>{title}</Text>
             </View>
-            {contents.map(content => <Text key={content.id}>{content}</Text>)}
          </Pressable>
       </View>
    )
@@ -29,18 +28,22 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       color: 'white',
       backgroundColor: Colors.secondary500,
-      padding: 10,
       borderRadius: 8,
       shadowOffset: { width: 0, height: 2 },
       shadowColor: 'grey',
       shadowOpacity: 0.5,
       marginVertical: 10,
       marginHorizontal: 10,
-      shadowRadius: 7
+      shadowRadius: 7,
+   },
+   innerContainer: {
+      borderRadius: 8,
+      overflow: 'hidden'
    },
    title: {
       fontSize: 22,
-      color: Colors.primary500
+      color: Colors.primary500,
+      margin: 15
    },
    info: {
       color: Colors.primary500
@@ -48,7 +51,6 @@ const styles = StyleSheet.create({
    image: {
       width: 350,
       height: 200,
-      overflow: 'hidden',
    }
 });
 

@@ -11,23 +11,16 @@ const Stack = createNativeStackNavigator()
 
 
 export default function App() {
-
    return (
-      <>
-         <StatusBar style="dark" />
-         <NavigationContainer>
-            <Stack.Navigator screenOptions={{
-               title: 'Home',
-               headerStyle: { backgroundColor: Colors.secondary500 },
-               headerTintColor: Colors.primary500
-            }}>
-               <Stack.Screen name='All Courses' component={HomeScreen} />
-               <Stack.Screen name='CourseDetails' component={CourseDetailsScreen} />
-            </Stack.Navigator>
-         </NavigationContainer>
-      </>
-
-
+      <NavigationContainer>
+         <Stack.Navigator screenOptions={{
+            headerStyle: { backgroundColor: Colors.secondary500 },
+            headerTintColor: Colors.primary500
+         }}>
+            <Stack.Screen name='All Courses' component={HomeScreen} />
+            <Stack.Screen name='CourseDetails' component={CourseDetailsScreen} />
+         </Stack.Navigator>
+      </NavigationContainer>
    );
 }
 

@@ -12,7 +12,7 @@ const CourseDetailsScreen = ({ route }) => {
 
    return (
       <View>
-         <Text>{selectedCourse.info}</Text>
+         <Text>{selectedCourse.description}</Text>
       </View>
    )
 }
