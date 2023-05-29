@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-const CardItem = ({ title, info, id }) => {
+const CardItem = ({ title, description, id, contents }) => {
 
    const navigation = useNavigation()
    const pressCourseHandler = () => {
@@ -13,7 +13,7 @@ const CardItem = ({ title, info, id }) => {
       <View style={styles.textContainer}>
          <Pressable onPress={pressCourseHandler}>
             <Text style={styles.title}>{title}</Text>
-            <Text style={styles.info}>{info}</Text>
+            {contents.map(content => <Text key={content.id}>{content}</Text>)}
          </Pressable>
       </View>
    )
