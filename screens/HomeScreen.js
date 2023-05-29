@@ -1,5 +1,5 @@
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, View, FlatList, SafeAreaView, Button } from 'react-native';
+import { StyleSheet, View, FlatList, SafeAreaView, Button, ScrollView } from 'react-native';
 import { useState } from 'react';
 
 import Colors from '../constants/Colors'
@@ -36,6 +36,7 @@ const HomeScreen = () => {
                renderItem={renderCourse}
                keyExtractor={item => item.id}
             />
+
          </SafeAreaView>
       </View>
    );
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
       marginTop: StatusBar.currentHeight || 0
    },
    safeArea: {
-      marginTop: 14
+      marginTop: 14,
    }
 });
 

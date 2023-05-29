@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-export default Item = ({ title, info, id }) => {
+const CardItem = ({ title, info, id }) => {
 
    const navigation = useNavigation()
    const pressCourseHandler = () => {
@@ -42,3 +42,6 @@ const styles = StyleSheet.create({
       color: Colors.primary500
    }
 });
+
+
+export default CardItem

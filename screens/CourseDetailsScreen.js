@@ -8,7 +8,7 @@ const CourseDetailsScreen = ({ route }) => {
    console.log(id)
 
    const selectedCourse = DATA.find(course => course.id === id)
-   console.log(selectedCourse)
+
 
    return (
       <View>
