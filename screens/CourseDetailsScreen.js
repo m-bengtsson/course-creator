@@ -6,9 +6,7 @@ import Colors from "../constants/Colors";
 const CourseDetailsScreen = ({ route }) => {
 
    const { id } = route.params; // Access the courseId parameter
-
    const selectedCourse = DATA.find(course => course.id === id)
-
 
    return (
       <ScrollView style={styles.container}>
@@ -27,14 +25,23 @@ const styles = StyleSheet.create({
       backgroundColor: Colors.secondary500
    },
    title: {
-      fontSize: 20,
-      margin: 16
+      fontSize: 25,
+      margin: 25,
+      letterSpacing: 0.5,
+      lineHeight: 35,
+      color: Colors.grey500,
    },
    contents: {
-      margin: 20
+      marginHorizontal: 40,
+      marginVertical: 20,
+      color: Colors.grey500,
    },
    description: {
-      margin: 20
+      marginHorizontal: 30,
+      marginBottom: 20,
+      letterSpacing: 0.3,
+      lineHeight: 20,
+      color: Colors.grey500,
    },
 
    image: {
