@@ -6,7 +6,7 @@ const CardItem = ({ title, description, id, contents, image }) => {
 
    const navigation = useNavigation()
    const pressCourseHandler = () => {
-      navigation.navigate('CourseDetails', { id: id })
+      navigation.navigate('Drawer', { id: id })
    }
    return (
       <View style={styles.container} >

@@ -3,9 +3,8 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native"
 import DATA from '../data/courseData'
 import Colors from "../constants/Colors";
 
-const CourseDetailsScreen = ({ route }) => {
+const CourseDetailsScreen = ({ id }) => {
 
-   const { id } = route.params; // Access the courseId parameter
    const selectedCourse = DATA.find(course => course.id === id)
 
    return (
