@@ -6,9 +6,9 @@ export default DATA = [
       title: 'Low maintanence plants: How to care for some of the easiest plants indoors',
       contents: ['lorem ipsum', 'dolor si amet', 'consectetur adipiscing elit', 'fusce ornare fusce quam tortor'],
       description: 'Lorem ipsum dolor sit amet. Eos quae veniam aut iusto odio vel voluptas repellat. Qui architecto dolor ab commodi deleniti et vitae nihil. repellat tenetur eum internos voluptatum sed nulla veniam a reprehenderit voluptatem est maxime dolorem ut ratione quas.Nam doloribus placeat quo voluptatem culpa ut veniam natus est quam velit. Et voluptatem reiciendis in Quis quos ab reprehenderit rerum non distinctio voluptatem aut ducimus accusamus ea quasi illo? 33 galisum dolore est laboriosam libero eos quia commodi ut blanditiis delectus',
-      videos: [{
-         url: 'url',
-         title: 'title',
+      parts: [{
+         url: 'http youtube',
+         title: 'Part 1',
          contents: ['sldfmzlsdf', 'asfsd sdf asdfpoa fsldf', 'hej ajdf fsdssdw']
       },
       {
@@ -35,7 +35,7 @@ export default DATA = [
       image: require('../assets/sensitive-plants.jpg'),
       contents: ['lorem ipsum', 'dolor si amet', 'consectetur adipiscing elit', 'fusce ornare fusce quam tortor'],
       description: 'Lorem ipsum dolor sit amet. Eos quae veniam aut iusto odio vel voluptas repellat. Qui architecto dolor ab commodi deleniti et vitae nihil.t repellat tenetur eum internos voluptatum sed nulla veniam a reprehenderit voluptatem est maxime dolorem ut ratione quas.Nam doloribus placeat quo voluptatem culpa ut veniam natus est quam velit. Et voluptatem reiciendis in Quis quos ab reprehenderit rerum non distinctio voluptatem aut ducimus accusamus ea quasi illo? 33 galisum dolore est laboriosam libero eos quia commodi ut blanditiis delectus',
-      videos: [{
+      parts: [{
          url: 'url',
          title: 'title',
          contents: ['sldfmzlsdf', 'asfsd sdf asdfpoa fsldf', 'hej ajdf fsdssdw']
@@ -64,7 +64,7 @@ export default DATA = [
       image: require('../assets/watering-plants.jpg'),
       contents: ['lorem ipsum', 'dolor si amet', 'consectetur adipiscing elit', 'fusce ornare fusce quam tortor'],
       description: 'Lorem ipsum dolor sit amet. Eos quae veniam aut iusto odio vel voluptas repellat. Qui architecto dolor ab commodi deleniti et vitae nihil.t repellat tenetur eum internos voluptatum sed nulla veniam a reprehenderit voluptatem est maxime dolorem ut ratione quas.Nam doloribus placeat quo voluptatem culpa ut veniam natus est quam velit. Et voluptatem reiciendis in Quis quos ab reprehenderit rerum non distinctio voluptatem aut ducimus accusamus ea quasi illo? 33 galisum dolore est laboriosam libero eos quia commodi ut blanditiis delectus',
-      videos: [{
+      parts: [{
          url: 'url',
          title: 'title',
          contents: ['sldfmzlsdf', 'asfsd sdf asdfpoa fsldf', 'hej ajdf fsdssdw']
@@ -93,7 +93,7 @@ export default DATA = [
       image: require('../assets/styling-with-plants.jpg'),
       contents: ['lorem ipsum', 'dolor si amet', 'consectetur adipiscing elit', 'fusce ornare fusce quam tortor'],
       description: 'Lorem ipsum dolor sit amet. Eos quae veniam aut iusto odio vel voluptas repellat. Qui architecto dolor ab commodi deleniti et vitae nihil.t repellat tenetur eum internos voluptatum sed nulla veniam a reprehenderit voluptatem est maxime dolorem ut ratione quas.Nam doloribus placeat quo voluptatem culpa ut veniam natus est quam velit. Et voluptatem reiciendis in Quis quos ab reprehenderit rerum non distinctio voluptatem aut ducimus accusamus ea quasi illo? 33 galisum dolore est laboriosam libero eos quia commodi ut blanditiis delectus',
-      videos: [{
+      parts: [{
          url: 'url',
          title: 'title',
          contents: ['sldfmzlsdf', 'asfsd sdf asdfpoa fsldf', 'hej ajdf fsdssdw']
@@ -122,7 +122,7 @@ export default DATA = [
       image: require('../assets/sprouts.jpg'),
       contents: ['lorem ipsum', 'dolor si amet', 'consectetur adipiscing elit', 'fusce ornare fusce quam tortor'],
       description: 'Lorem ipsum dolor sit amet. Eos quae veniam aut iusto odio vel voluptas repellat. Qui architecto dolor ab commodi deleniti et vitae nihil.t repellat tenetur eum internos voluptatum sed nulla veniam a reprehenderit voluptatem est maxime dolorem ut ratione quas.Nam doloribus placeat quo voluptatem culpa ut veniam natus est quam velit. Et voluptatem reiciendis in Quis quos ab reprehenderit rerum non distinctio voluptatem aut ducimus accusamus ea quasi illo? 33 galisum dolore est laboriosam libero eos quia commodi ut blanditiis delectus',
-      videos: [{
+      parts: [{
          url: 'url',
          title: 'title',
          contents: ['sldfmzlsdf', 'asfsd sdf asdfpoa fsldf', 'hej ajdf fsdssdw']

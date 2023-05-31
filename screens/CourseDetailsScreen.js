@@ -3,18 +3,18 @@ import { View, Text, Image, StyleSheet, ScrollView } from "react-native"
 import DATA from '../data/courseData'
 import Colors from "../constants/Colors";
 
-const CourseDetailsScreen = ({ id }) => {
+const CourseDetailsScreen = ({ selectedCourse }) => {
 
-   const selectedCourse = DATA.find(course => course.id === id)
+   const { id, title, contents, category, image, description } = selectedCourse;
 
    return (
       <ScrollView style={styles.container}>
-         <Image style={styles.image} source={selectedCourse.image} />
-         <Text style={styles.title}>{selectedCourse.title}</Text>
+         <Image style={styles.image} source={image} />
+         <Text style={styles.title}>{title}</Text>
          <Text style={styles.title}>Course contents</Text>
-         {selectedCourse.contents.map(content => <Text style={styles.contents} key={selectedCourse.id}> - {content}</Text>)}
+         {contents.map(content => <Text style={styles.contents} key={id}> - {content}</Text>)}
          <Text style={styles.title}>Description </Text>
-         <Text style={styles.description}>{selectedCourse.description}</Text>
+         <Text style={styles.description}>{description}</Text>
       </ScrollView>
    )
 }

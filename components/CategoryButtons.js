@@ -5,7 +5,7 @@ import Colors from '../constants/Colors';
 import Button from './Button'
 
 
-const FilterButtons = ({ selectedCategory, onSelectCategory }) => {
+const CategoryButtons = ({ selectedCategory, onSelectCategory }) => {
    const [showCategories, setShowCategories] = useState(false);
 
    const toggleCategories = () => {
@@ -63,4 +63,4 @@ const styles = StyleSheet.create({
    },
 });
 
-export default FilterButtons;
+export default CategoryButtons;

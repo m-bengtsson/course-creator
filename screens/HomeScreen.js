@@ -5,7 +5,7 @@ import { useState } from 'react';
 import Colors from '../constants/Colors'
 import DATA from '../data/courseData';
 import CourseCard from '../components/CourseCard';
-import FilterButtons from '../components/FilterButtons';
+import CategoryButtons from '../components/CategoryButtons';
 
 const HomeScreen = () => {
    const [selectedCategory, setSelectedCategory] = useState(null);
@@ -27,7 +27,7 @@ const HomeScreen = () => {
       <View style={styles.container}>
          <StatusBar style="dark" />
          <SafeAreaView style={styles.safeArea}>
-            <FilterButtons
+            <CategoryButtons
                selectedCategory={selectedCategory}
                onSelectCategory={setSelectedCategory}
             />
