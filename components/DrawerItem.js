@@ -9,7 +9,7 @@ const DrawerItems = ({ part }) => {
    const toggleExpand = () => {
       setExpanded((prevExpanded) => !prevExpanded);
    };
-
+   // testar 123
    return (
       <TouchableOpacity onPress={toggleExpand}>
          <View style={styles.container}>
