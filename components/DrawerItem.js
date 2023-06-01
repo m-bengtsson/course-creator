@@ -1,15 +1,23 @@
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from "react-native";
 import Colors from "../constants/Colors";
+import { useState } from "react";
 
 
 const DrawerItems = ({ part }) => {
+   const [expanded, setExpanded] = useState(false);
+
+   const toggleExpand = () => {
+      setExpanded(!expanded);
+   };
+
    return (
-      <Pressable>
+      <TouchableOpacity onPress={toggleExpand}>
          <View style={styles.container}>
             <Text style={styles.title}>{part.title}</Text>
+            {expanded && <Text style={styles.info}>{part.contents}</Text>}
          </View>
-      </Pressable>
-   )
+      </TouchableOpacity>
+   );
 }
 
 const styles = StyleSheet.create({
