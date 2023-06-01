@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from "react-native";
 import Colors from "../constants/Colors";
 import MyModal from "./MyModal";
+import { WebView } from 'react-native-webview';
 
 const DrawerItems = ({ part }) => {
    const [isExpanded, setExpanded] = useState(false);
