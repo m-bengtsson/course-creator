@@ -7,6 +7,11 @@ import VideoModal from "./VideoModal";
 
 const DrawerItems = ({ part }) => {
    const [modalVisible, setModalVisible] = useState(false);
+   const [expanded, setExpanded] = useState(false);
+
+   const toggleExpand = () => {
+      setExpanded(!expanded);
+   };
 
    const toggleModalVisible = () => {
       setModalVisible((prevExpanded) => !prevExpanded);
@@ -18,20 +23,16 @@ const DrawerItems = ({ part }) => {
       }
    }, []);
 
-   const [expanded, setExpanded] = useState(false);
-
-   const toggleExpand = () => {
-      setExpanded(!expanded);
-   };
-
-
    return (
       <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
             <Text style={styles.title}>{part.title}</Text>
-            {expanded && <Text style={styles.content}>{part.contents}</Text>}
+            {expanded &&
+               <View>
+                  <Text style={styles.info}>This video shows:</Text>
+                  {part.contents.map(content => <Text style={styles.contents}>{content}</Text>)}
+               </View>}
          </View>
-
          <Modal visible={modalVisible} animationType="fade" transparent={true}>
             <VideoModal part={part} onPress={toggleModalVisible} onStateChange={onStateChange} />
          </Modal>
@@ -41,7 +42,6 @@ const DrawerItems = ({ part }) => {
 
 const styles = StyleSheet.create({
    container: {
-      alignItems: "center",
       color: "white",
       backgroundColor: Colors.secondary500,
       borderRadius: 6,
@@ -55,17 +55,19 @@ const styles = StyleSheet.create({
    },
    title: {
       fontSize: 20,
-      color: Colors.primary500,
+      color: Colors.grey500,
+      opacity: 0.5,
       margin: 20,
    },
    info: {
       color: Colors.primary500,
       fontWeight: 'bold',
-      margin: 10,
+      margin: 20,
    },
    contents: {
       color: Colors.grey500,
-      margin: 5,
+      marginHorizontal: 20,
+      marginVertical: 10,
 
    },
 })
