@@ -7,8 +7,7 @@ const VideoModal = ({ onPress, onStateChange, part }) => {
       <View style={styles.modalContainer}>
          <View style={styles.modalContent}>
             <YoutubePlayer
-               height={240}
-               width={'100%'}
+               height={230}
                play={true}
                videoId={part.videoId}
                onChangeState={onStateChange}

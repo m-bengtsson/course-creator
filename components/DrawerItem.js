@@ -7,6 +7,7 @@ import VideoModal from "./VideoModal";
 const DrawerItems = ({ part }) => {
    const [modalVisible, setModalVisible] = useState(false);
    const [expanded, setExpanded] = useState(false);
+   const [videoEnded, setVideoEnded] = useState(false);
 
    const toggleExpand = () => {
       setExpanded(!expanded);
@@ -18,14 +19,15 @@ const DrawerItems = ({ part }) => {
 
    const onStateChange = useCallback((state) => {
       if (state === "ended") {
-         Alert.alert("Video has finished playing!");
+         setVideoEnded(true);
+         setModalVisible(false);
       }
    }, []);
 
    return (
       <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
-            <Text style={styles.title}>{part.title}</Text>
+            <Text style={[styles.title, videoEnded && styles.titleEnded]}>{part.title}</Text>
             {expanded &&
                <View>
                   <Text style={styles.info}>This video shows:</Text>
@@ -58,6 +60,10 @@ const styles = StyleSheet.create({
       opacity: 0.5,
       margin: 20,
    },
+   titleEnded: {
+      color: Colors.grey500,
+      opacity: 1
+   },
    info: {
       color: Colors.primary500,
       fontWeight: 'bold',
@@ -67,9 +73,7 @@ const styles = StyleSheet.create({
       color: Colors.grey500,
       marginHorizontal: 20,
       marginVertical: 10,
-
    },
-})
-
+});
 
 export default DrawerItems;
