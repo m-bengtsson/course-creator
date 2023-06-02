@@ -29,7 +29,7 @@ const DrawerItems = ({ part }) => {
             {expanded &&
                <View>
                   <Text style={styles.info}>This video shows:</Text>
-                  {part.contents.map(content => <Text style={styles.contents}>{content}</Text>)}
+                  {part.contents.map((content, index) => <Text key={index} style={styles.contents}>{content}</Text>)}
                </View>}
          </View>
          <Modal visible={modalVisible} animationType="fade" transparent={true}>

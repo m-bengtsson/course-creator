@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Pressable, TouchableOpacity } from 'react-nativ
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 
-const VideoModal = ({ onPress, onStateChange }) => {
+const VideoModal = ({ onPress, onStateChange, part }) => {
    return (
       <View style={styles.modalContainer}>
          <View style={styles.modalContent}>
@@ -10,7 +10,7 @@ const VideoModal = ({ onPress, onStateChange }) => {
                height={240}
                width={'100%'}
                play={true}
-               videoId={"l3zipB6nek8"}
+               videoId={part.videoId}
                onChangeState={onStateChange}
             />
          </View>
