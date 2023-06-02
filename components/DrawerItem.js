@@ -1,25 +1,39 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from "react-native";
+import React, { useState, useCallback } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable, Alert } from "react-native";
+import YoutubePlayer from "react-native-youtube-iframe";
+
 import Colors from "../constants/Colors";
-import MyModal from "./MyModal";
+import VideoModal from "./VideoModal";
 
 const DrawerItems = ({ part }) => {
-   const [isExpanded, setExpanded] = useState(false);
+   const [modalVisible, setModalVisible] = useState(false);
 
-   const toggleExpand = () => {
-      setExpanded((prevExpanded) => !prevExpanded);
+   const toggleModalVisible = () => {
+      setModalVisible((prevExpanded) => !prevExpanded);
    };
 
+   const onStateChange = useCallback((state) => {
+      if (state === "ended") {
+         Alert.alert("Video has finished playing!");
+      }
+   }, []);
+
+   const [expanded, setExpanded] = useState(false);
+
+   const toggleExpand = () => {
+      setExpanded(!expanded);
+   };
+
+
    return (
-      <TouchableOpacity onPress={toggleExpand}>
+      <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
             <Text style={styles.title}>{part.title}</Text>
+            {expanded && <Text style={styles.content}>{part.contents}</Text>}
          </View>
-         <Modal
-            visible={isExpanded}
-            animationType="fade"
-            transparent={true}>
-            <MyModal part={part} onPress={toggleExpand} />
+
+         <Modal visible={modalVisible} animationType="fade" transparent={true}>
+            <VideoModal part={part} onPress={toggleModalVisible} onStateChange={onStateChange} />
          </Modal>
       </TouchableOpacity>
    );
@@ -44,7 +58,17 @@ const styles = StyleSheet.create({
       color: Colors.primary500,
       margin: 20,
    },
+   info: {
+      color: Colors.primary500,
+      fontWeight: 'bold',
+      margin: 10,
+   },
+   contents: {
+      color: Colors.grey500,
+      margin: 5,
 
-});
+   },
+})
+
 
 export default DrawerItems;
