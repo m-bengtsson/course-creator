@@ -1,22 +1,16 @@
 import { createDrawerNavigator } from "@react-navigation/drawer";
-import CourseDetailsScreen from "../screens/CourseDetailsScreen";
-import DrawerList from "./DrawerList";
 import { useNavigation } from "@react-navigation/native";
 import { useLayoutEffect } from "react";
-import DATA from '../data/courseData'
-import { useWindowDimensions } from 'react-native';
 
+import CourseDetailsScreen from "../screens/CourseDetailsScreen";
+import DATA from '../data/courseData'
+import DrawerList from "./DrawerList";
 
 const Drawer = createDrawerNavigator()
 
 const DrawerNavigation = ({ route }) => {
-   const dimensions = useWindowDimensions();
-
    const { id } = route.params;
    const selectedCourse = DATA.find(course => course.id === id)
-
-   console.log('id: ', id)
-
    const navigation = useNavigation()
 
    useLayoutEffect(() => {
@@ -24,7 +18,6 @@ const DrawerNavigation = ({ route }) => {
          title: 'Course Details'
       });
    }, [navigation]);
-
 
    return (
       <Drawer.Navigator
@@ -35,8 +28,8 @@ const DrawerNavigation = ({ route }) => {
             sceneContainerStyle: { backgroundColor: "rgb(244, 202, 202)" },
             drawerStyle: { width: '100%' },
          }}
-      >
-         <Drawer.Screen name="CourseDetails" component={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />
+      >{/* Pass children to able passing inline function */}
+         <Drawer.Screen name="CourseDetails" children={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />
       </Drawer.Navigator>
    );
 };

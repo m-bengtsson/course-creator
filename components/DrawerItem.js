@@ -1,6 +1,5 @@
 import React, { useState, useCallback } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable, Alert } from "react-native";
-import YoutubePlayer from "react-native-youtube-iframe";
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Alert } from "react-native";
 
 import Colors from "../constants/Colors";
 import VideoModal from "./VideoModal";

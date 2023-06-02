@@ -2,7 +2,7 @@ import { StyleSheet, View, Text, Pressable, Image } from "react-native";
 import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-const CardItem = ({ title, description, id, contents, image }) => {
+const CardItem = ({ title, id, image }) => {
 
    const navigation = useNavigation()
    const pressCourseHandler = () => {

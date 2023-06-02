@@ -6,7 +6,7 @@ const DrawerList = ({ selectedCourse, navigation }) => {
 
    return (
       <View>
-         {parts.map(part => <DrawerItem part={part} />)}
+         {parts.map((part, index) => <DrawerItem key={index} part={part} />)}
       </View>
    )
 }
