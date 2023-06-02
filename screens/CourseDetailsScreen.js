@@ -1,20 +1,27 @@
-import { View, Text, Image, StyleSheet, ScrollView } from "react-native"
-
-import DATA from '../data/courseData'
+import { View, Text, Image, StyleSheet, ScrollView, Pressable } from "react-native"
+import { useState } from "react";
 import Colors from "../constants/Colors";
 
 const CourseDetailsScreen = ({ selectedCourse }) => {
 
-   const { id, title, contents, category, image, description } = selectedCourse;
+   const { id, title, contents, image, description } = selectedCourse;
+
+   const [expanded, setExpanded] = useState(true);
+
+   const toggleExpand = () => {
+      setExpanded(!expanded);
+   };
 
    return (
       <ScrollView style={styles.container}>
          <Image style={styles.image} source={image} />
          <Text style={styles.title}>{title}</Text>
-         <Text style={styles.title}>Course contents</Text>
-         {contents.map(content => <Text style={styles.contents} key={id}> - {content}</Text>)}
-         <Text style={styles.title}>Description </Text>
-         <Text style={styles.description}>{description}</Text>
+         <Text style={styles.secondTitle}>Course contents</Text>
+         {contents.map((content, index) => <Text style={styles.contents} key={index}> - {content}</Text>)}
+         <Pressable onPress={toggleExpand}>
+            <Text style={styles.secondTitle}>Course Description </Text>
+         </Pressable>
+         {expanded && <Text style={styles.description}>{description}</Text>}
       </ScrollView>
    )
 }
@@ -24,9 +31,15 @@ const styles = StyleSheet.create({
       backgroundColor: Colors.secondary500
    },
    title: {
-      fontSize: 25,
+      fontSize: 28,
       margin: 25,
       letterSpacing: 0.5,
+      lineHeight: 35,
+      color: Colors.grey500,
+   },
+   secondTitle: {
+      fontSize: 20,
+      margin: 25,
       lineHeight: 35,
       color: Colors.grey500,
    },

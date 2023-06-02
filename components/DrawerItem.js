@@ -1,26 +1,39 @@
-import React, { useState } from "react";
-import { View, Text, StyleSheet, TouchableOpacity, Modal, Pressable } from "react-native";
+import React, { useState, useCallback } from "react";
+import { View, Text, StyleSheet, TouchableOpacity, Modal, Alert } from "react-native";
+
 import Colors from "../constants/Colors";
-import MyModal from "./MyModal";
-import { WebView } from 'react-native-webview';
+import VideoModal from "./VideoModal";
 
 const DrawerItems = ({ part }) => {
-   const [isExpanded, setExpanded] = useState(false);
+   const [modalVisible, setModalVisible] = useState(false);
+   const [expanded, setExpanded] = useState(false);
 
    const toggleExpand = () => {
-      setExpanded((prevExpanded) => !prevExpanded);
+      setExpanded(!expanded);
    };
 
+   const toggleModalVisible = () => {
+      setModalVisible((prevExpanded) => !prevExpanded);
+   };
+
+   const onStateChange = useCallback((state) => {
+      if (state === "ended") {
+         Alert.alert("Video has finished playing!");
+      }
+   }, []);
+
    return (
-      <TouchableOpacity onPress={toggleExpand}>
+      <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
             <Text style={styles.title}>{part.title}</Text>
+            {expanded &&
+               <View>
+                  <Text style={styles.info}>This video shows:</Text>
+                  {part.contents.map(content => <Text style={styles.contents}>{content}</Text>)}
+               </View>}
          </View>
-         <Modal
-            visible={isExpanded}
-            animationType="fade"
-            transparent={true}>
-            <MyModal part={part} onPress={toggleExpand} />
+         <Modal visible={modalVisible} animationType="fade" transparent={true}>
+            <VideoModal part={part} onPress={toggleModalVisible} onStateChange={onStateChange} />
          </Modal>
       </TouchableOpacity>
    );
@@ -28,7 +41,6 @@ const DrawerItems = ({ part }) => {
 
 const styles = StyleSheet.create({
    container: {
-      alignItems: "center",
       color: "white",
       backgroundColor: Colors.secondary500,
       borderRadius: 6,
@@ -42,10 +54,22 @@ const styles = StyleSheet.create({
    },
    title: {
       fontSize: 20,
-      color: Colors.primary500,
+      color: Colors.grey500,
+      opacity: 0.5,
       margin: 20,
    },
+   info: {
+      color: Colors.primary500,
+      fontWeight: 'bold',
+      margin: 20,
+   },
+   contents: {
+      color: Colors.grey500,
+      marginHorizontal: 20,
+      marginVertical: 10,
 
-});
+   },
+})
+
 
 export default DrawerItems;
