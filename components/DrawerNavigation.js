@@ -23,12 +23,12 @@ const DrawerNavigation = ({ route }) => {
       <Drawer.Navigator
          drawerContent={(props) => <DrawerList selectedCourse={selectedCourse} {...props} />}
          screenOptions={{
-            headerStyle: { backgroundColor: "#58afc9" },
+            headerStyle: { backgroundColor: "#58afc9", height: 50 },
             headerTintColor: "white",
             sceneContainerStyle: { backgroundColor: "rgb(244, 202, 202)" },
             drawerStyle: { width: '100%' },
          }}
-      >{/* Pass children to able passing inline function */}
+      >{/* Using children instead of component to able passing inline function */}
          <Drawer.Screen name="CourseDetails" children={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />
       </Drawer.Navigator>
    );

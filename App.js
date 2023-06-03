@@ -19,7 +19,7 @@ export default function App() {
    return (
       <NavigationContainer>
          <Stack.Navigator screenOptions={{
-            headerStyle: { backgroundColor: Colors.secondary500 },
+            headerStyle: { backgroundColor: Colors.secondary500, },
             headerTintColor: Colors.primary500
          }}>
             <Stack.Screen name='All Courses' component={HomeScreen} />

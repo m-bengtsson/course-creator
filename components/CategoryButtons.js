@@ -7,17 +7,18 @@ import Button from './Button'
 
 
 const CategoryButtons = ({ selectedCategory, onSelectCategory }) => {
+   // Set state for toggling categories
    const [showCategories, setShowCategories] = useState(false);
-
+   // Function toggling categories
    const toggleCategories = () => {
       setShowCategories(prevState => !prevState);
    };
-
+   // Handling category selecttion and toggling betweet them
    const handleCategorySelection = category => {
       onSelectCategory(category);
       toggleCategories();
    };
-
+   // Rendering filter and category buttons
    return (
       <View style={styles.container}>
          <View style={styles.titleFilter}>
