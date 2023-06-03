@@ -16,7 +16,6 @@ const styles = StyleSheet.create({
       color: 'green',
       fontWeight: "bold",
       alignSelf: "center",
-      textTransform: "uppercase",
       margin: 10,
    }
 

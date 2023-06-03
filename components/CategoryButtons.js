@@ -48,10 +48,9 @@ const styles = StyleSheet.create({
       alignItems: 'center'
    },
    categoryTitle: {
-      fontSize: 24,
+      fontSize: 22,
       fontWeight: 'bold',
       color: Colors.primary500,
-      textTransform: "uppercase",
    },
    filterButton: {
       alignItems: 'flex-end'
