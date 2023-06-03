@@ -28,7 +28,8 @@ const CategoryButtons = ({ selectedCategory, onSelectCategory }) => {
             <View style={styles.categoryContainer}>
                <Button title="All" onPress={() => handleCategorySelection(null)} />
                <Button title="Plantcare" onPress={() => handleCategorySelection('Plantcare')} />
-               <Button title="Plant design" onPress={() => handleCategorySelection('Plant Design')} titleStyle={styles.buttonTitle} />
+               <Button title="Plant design" onPress={() => handleCategorySelection('Plant Design')} />
+               <Button title="Gardening" onPress={() => handleCategorySelection('Gardening')} />
                {/* Add more buttons for other categories */}
             </View>
          )}

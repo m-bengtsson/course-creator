@@ -41,7 +41,7 @@ const styles = StyleSheet.create({
    },
    title: {
       fontSize: 20,
-      color: Colors.primary500,
+      color: Colors.grey500,
       margin: 20
    },
    info: {

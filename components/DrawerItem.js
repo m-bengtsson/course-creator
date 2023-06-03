@@ -5,18 +5,23 @@ import Colors from "../constants/Colors";
 import VideoModal from "./VideoModal";
 
 const DrawerItems = ({ part }) => {
+   // Setting state to modal to trigger the toggle
    const [modalVisible, setModalVisible] = useState(false);
+   // State triggering if view is expanded
    const [expanded, setExpanded] = useState(false);
+   // State for when video is finished
    const [videoEnded, setVideoEnded] = useState(false);
 
+   // Expand and unexpand view
    const toggleExpand = () => {
       setExpanded(!expanded);
    };
-
+   // Toggling the video based on previous state
    const toggleModalVisible = () => {
-      setModalVisible((prevExpanded) => !prevExpanded);
+      setModalVisible((prev) => !prev);
    };
 
+   // Hide video when ended and set state to change styling on title
    const onStateChange = useCallback((state) => {
       if (state === "ended") {
          setVideoEnded(true);
@@ -24,6 +29,7 @@ const DrawerItems = ({ part }) => {
       }
    }, []);
 
+   // Rendering content title and contents on press, render video on long press.
    return (
       <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
