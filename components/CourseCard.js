@@ -1,13 +1,15 @@
 import { StyleSheet, View, Text, Pressable, Image } from "react-native";
-import Colors from "../constants/Colors";
 import { useNavigation } from "@react-navigation/native";
 
-const CardItem = ({ title, id, image }) => {
+import Colors from "../constants/Colors";
 
+const CardItem = ({ title, id, image }) => {
    const navigation = useNavigation()
+
    const pressCourseHandler = () => {
       navigation.navigate('Drawer', { id: id })
    }
+
    return (
       <View style={styles.container} >
          <Pressable onPress={pressCourseHandler}>
@@ -19,7 +21,6 @@ const CardItem = ({ title, id, image }) => {
       </View>
    )
 }
-
 
 const styles = StyleSheet.create({
    container: {

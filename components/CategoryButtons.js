@@ -1,4 +1,3 @@
-import React from 'react';
 import { useState } from 'react';
 import { View, StyleSheet, Text } from 'react-native';
 
@@ -18,7 +17,7 @@ const CategoryButtons = ({ selectedCategory, onSelectCategory }) => {
       onSelectCategory(category);
       toggleCategories();
    };
-   // Rendering filter and category buttons
+
    return (
       <View style={styles.container}>
          <View style={styles.titleFilter}>

@@ -1,11 +1,11 @@
-import { View, Text, Image, StyleSheet, ScrollView, Pressable } from "react-native"
+import { Text, Image, StyleSheet, ScrollView, Pressable } from "react-native"
 import { useState } from "react";
+
 import Colors from "../constants/Colors";
 
 const CourseDetailsScreen = ({ selectedCourse }) => {
 
    const { id, title, contents, image, description } = selectedCourse;
-
    const [expanded, setExpanded] = useState(true);
 
    const toggleExpand = () => {

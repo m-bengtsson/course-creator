@@ -14,6 +14,7 @@ const DrawerNavigation = ({ route }) => {
    const selectedCourse = DATA.find(course => course.id === id)
    const navigation = useNavigation()
 
+   // Set navigation options for the screen
    useLayoutEffect(() => {
       navigation.setOptions({
          headerTintColor: Colors.secondary500,
@@ -24,13 +25,14 @@ const DrawerNavigation = ({ route }) => {
 
    return (
       <Drawer.Navigator
+         // Pass the selected course to the drawer content component
          drawerContent={(props) => <DrawerList selectedCourse={selectedCourse} {...props} />}
          screenOptions={{
             sceneContainerStyle: { backgroundColor: Colors.blue500 },
             drawerStyle: { width: '100%' },
             headerShown: false
          }}
-      >{/* Using children instead of component to able passing inline function */}
+      >{/* Use children instead of component to pass an inline function */}
          <Drawer.Screen
             options={{ title: '' }}
             name="Course Details" children={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />

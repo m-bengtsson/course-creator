@@ -1,4 +1,4 @@
-import { StyleSheet, View, Text, Pressable, TouchableOpacity } from 'react-native';
+import { StyleSheet, View, Text, TouchableOpacity } from 'react-native';
 import YoutubePlayer from 'react-native-youtube-iframe';
 
 
@@ -6,6 +6,7 @@ const VideoModal = ({ onPress, onStateChange, part }) => {
    return (
       <View style={styles.modalContainer}>
          <View style={styles.modalContent}>
+            {/* Render the YouTube player component */}
             <YoutubePlayer
                height={230}
                play={true}

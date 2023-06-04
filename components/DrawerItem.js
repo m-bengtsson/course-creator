@@ -34,6 +34,7 @@ const DrawerItems = ({ part }) => {
       <TouchableOpacity onLongPress={toggleModalVisible} onPress={toggleExpand}>
          <View style={styles.container}>
             <Text style={[styles.title, videoEnded && styles.titleEnded]}>{part.title}</Text>
+            <Text style={[styles.time, videoEnded && styles.titleEnded]}>{part.timeLength}</Text>
             {expanded &&
                <View>
                   <Text style={styles.info}>This video shows:</Text>
@@ -80,6 +81,11 @@ const styles = StyleSheet.create({
       marginHorizontal: 20,
       marginVertical: 10,
    },
+   time: {
+      textAlign: 'right',
+      color: Colors.grey500,
+      opacity: 0.5,
+   }
 });
 
 export default DrawerItems;

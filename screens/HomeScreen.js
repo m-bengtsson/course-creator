@@ -12,9 +12,9 @@ const HomeScreen = () => {
 
    const filterCourses = () => {
       if (!selectedCategory) {
-         return DATA; // no category selected, return all courses
+         return DATA; // No category selected, return all courses
       }
-      // filter and return courses by selected category
+      // Filter and return courses by selected category
       return DATA.filter(course => course.category === selectedCategory);
    };
 
@@ -25,7 +25,7 @@ const HomeScreen = () => {
 
    return (
       <View style={styles.container}>
-         <StatusBar style="dark" />
+         <StatusBar style="light" />
          <SafeAreaView style={styles.safeArea}>
             <CategoryButtons
                selectedCategory={selectedCategory}
