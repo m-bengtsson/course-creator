@@ -1,26 +1,22 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View, FlatList, SafeAreaView } from 'react-native';
+import { StyleSheet } from 'react-native';
 import { NavigationContainer, DefaultTheme } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import { createDrawerNavigator } from '@react-navigation/drawer';
 
 import HomeScreen from './screens/HomeScreen';
-import CourseDetailsScreen from './screens/CourseDetailsScreen';
 import Colors from './constants/Colors';
-import DrawerNavigation from './components/DrawerNavigation'
+import DrawerNavigation from './components/DrawerNavigation';
 
-const Stack = createNativeStackNavigator()
-const Drawer = createDrawerNavigator();
-
+const Stack = createNativeStackNavigator();
 
 
 export default function App() {
    return (
       <NavigationContainer>
          <Stack.Navigator screenOptions={{
-            headerStyle: { backgroundColor: Colors.secondary500, },
-            headerTintColor: Colors.primary500
+            headerStyle: { backgroundColor: Colors.blue500, },
+            headerTintColor: Colors.secondary500
          }}>
             <Stack.Screen name='All Courses' component={HomeScreen} />
             <Stack.Screen name="Drawer" component={DrawerNavigation} />
@@ -37,6 +33,3 @@ const styles = StyleSheet.create({
       marginTop: StatusBar.currentHeight || 0
    },
 });
-
-
-// Drawer stack screen i av js, kommer ifrån drawernavigation component

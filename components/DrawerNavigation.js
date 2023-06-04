@@ -5,6 +5,7 @@ import { useLayoutEffect } from "react";
 import CourseDetailsScreen from "../screens/CourseDetailsScreen";
 import DATA from '../data/courseData'
 import DrawerList from "./DrawerList";
+import Colors from "../constants/Colors";
 
 const Drawer = createDrawerNavigator()
 
@@ -15,6 +16,8 @@ const DrawerNavigation = ({ route }) => {
 
    useLayoutEffect(() => {
       navigation.setOptions({
+         headerTintColor: Colors.secondary500,
+         headerStyle: { backgroundColor: Colors.blue500 },
          title: 'Course Details'
       });
    }, [navigation]);
@@ -23,13 +26,14 @@ const DrawerNavigation = ({ route }) => {
       <Drawer.Navigator
          drawerContent={(props) => <DrawerList selectedCourse={selectedCourse} {...props} />}
          screenOptions={{
-            headerStyle: { backgroundColor: "#58afc9", height: 50 },
-            headerTintColor: "white",
-            sceneContainerStyle: { backgroundColor: "rgb(244, 202, 202)" },
+            sceneContainerStyle: { backgroundColor: Colors.blue500 },
             drawerStyle: { width: '100%' },
+            headerShown: false
          }}
       >{/* Using children instead of component to able passing inline function */}
-         <Drawer.Screen name="CourseDetails" children={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />
+         <Drawer.Screen
+            options={{ title: '' }}
+            name="Course Details" children={() => <CourseDetailsScreen selectedCourse={selectedCourse} />} />
       </Drawer.Navigator>
    );
 };
